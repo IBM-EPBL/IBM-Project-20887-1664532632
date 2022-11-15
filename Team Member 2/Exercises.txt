@@ -1,0 +1,149 @@
+
+Exercises
+Answer the questions or complete the tasks outlined in bold below, use the specific method described if applicable.
+
+** What is 7 to the power of 4?**
+
+In [1]:
+7**4
+Out[1]:
+2401
+** Split this string:**
+
+s = "Hi there Sam!"
+
+into a list.
+
+In [4]:
+s = "Hi there Sam!"
+t = s.split()
+In [5]:
+print(t)
+['Hi', 'there', 'Sam!']
+** Given the variables:**
+
+planet = "Earth"
+diameter = 12742
+
+** Use .format() to print the following string: **
+
+The diameter of Earth is 12742 kilometers.
+In [9]:
+planet = "Earth"
+diameter = 12742
+In [10]:
+print(" The diameter of {0} is {1} kilometers.".format(planet,diameter))
+ The diameter of Earth is 12742 kilometers.
+** Given this nested list, use indexing to grab the word "hello" **
+
+In [12]:
+lst = [1,2,[3,4],[5,[100,200,['hello']],23,11],1,7]
+In [13]:
+lst[3][1][2][0]
+Out[13]:
+'hello'
+** Given this nest dictionary grab the word "hello". Be prepared, this will be annoying/tricky **
+
+In [14]:
+d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]}
+In [15]:
+d['k1'][3]['tricky'][3]['target'][3]
+Out[15]:
+'hello'
+** What is the main difference between a tuple and a list? **
+
+In [16]:
+# Tuples are immutable, and are denoted by paranthesis; they are also faster and don't have as many built in methods as lists.
+# Lists however are mutable, and are denoted by square brackets; they are relatively slower but have a lot of built in methods.
+** Create a function that grabs the email website domain from a string in the form: **
+
+user@domain.com
+
+So for example, passing "user@domain.com" would return: domain.com
+
+In [17]:
+def returnDomain(mail):
+  return mail.split('@')[-1]
+In [18]:
+returnDomain("user@domain.com")
+Out[18]:
+'domain.com'
+** Create a basic function that returns True if the word 'dog' is contained in the input string. Don't worry about edge cases like a punctuation being attached to the word dog, but do account for capitalization. **
+
+In [20]:
+def hasDog(str):
+  return 'dog' in str.lower()
+In [21]:
+hasDog("ThIs DoGgo is quite cute")
+Out[21]:
+True
+** Create a function that counts the number of times the word "dog" occurs in a string. Again ignore edge cases. **
+
+In [24]:
+def countDogs(doggo):
+  count = 0
+  for i in doggo.lower().split():
+    if 'dog' in i:
+      count += 1
+  return count
+In [25]:
+countDogs("ThIs DoGgo is a cute doggo")
+Out[25]:
+2
+Problem
+You are driving a little too fast, and a police officer stops you. Write a function to return one of 3 possible results: "No ticket", "Small ticket", or "Big Ticket". If your speed is 60 or less, the result is "No Ticket". If speed is between 61 and 80 inclusive, the result is "Small Ticket". If speed is 81 or more, the result is "Big Ticket". Unless it is your birthday (encoded as a boolean value in the parameters of the function) -- on your birthday, your speed can be 5 higher in all cases.
+
+In [27]:
+def caught_speeding(speed, is_birthday):
+    
+    if is_birthday:
+        speeding = speed - 5
+    else:
+        speeding = speed
+    
+    if speeding > 80:
+        return 'Big Ticket'
+    elif speeding > 60:
+        return 'Small Ticket'
+    else:
+        return 'No Ticket'
+In [31]:
+caught_speeding(90,True)
+Out[31]:
+'Big Ticket'
+In [29]:
+caught_speeding(81,True)
+Out[29]:
+'Small Ticket'
+Create an employee list with basic salary values(at least 5 values for 5 employees) and using a for loop retreive each employee salary and calculate total salary expenditure.
+
+In [43]:
+employee = ['Shyam','Balan','Haris','Pooja','Ramya']
+salary = [10000,20000,30000,40000,50000]
+totalExpenditure = 0
+In [44]:
+for i in range(len(employee)):
+  print("Employee {}'s salary is : {}".format(employee[i],salary[i]))
+  totalExpenditure += salary[i]
+
+print("The total salary expenditure for the company is ",totalExpenditure)
+Employee Shyam's salary is : 10000
+Employee Balan's salary is : 20000
+Employee Haris's salary is : 30000
+Employee Pooja's salary is : 40000
+Employee Ramya's salary is : 50000
+The total salary expenditure for the company is  150000
+Create two dictionaries in Python:
+
+First one to contain fields as Empid, Empname, Basicpay
+
+Second dictionary to contain fields as DeptName, DeptId.
+
+Combine both dictionaries.
+
+In [47]:
+dict1 = {"Empid":1,"Empname":"Shyam","Basicpay":40000}
+dict2 = {"DeptName":"Product Design","DepId":101}
+dict1.update(dict2)
+print(dict1)
+{'Empid': 1, 'Empname': 'Shyam', 'Basicpay': 40000, 'DeptName': 'Product Design', 'DepId': 101}
